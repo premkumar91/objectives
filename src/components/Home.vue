@@ -4,6 +4,10 @@
     <!-- <router-link to="/map">Go to assesment</router-link> -->
     <!-- <button @click="inc()">inc</button> -->
     <!-- getters{{count}} -->
+    <label>Filters</label>
+    <select>
+      <option v-for="(category,name) in categories" :key="name">{{name}}</option>
+    </select>
     <Objectives v-if="isDataFetched" :data="objectives"/>
   </div>
 </template>
@@ -16,7 +20,8 @@ export default {
   name:'home',
   data(){
     return{
-      objectives:{}
+      objectives:{},
+      categories:{}
     }
   },
   components:{
@@ -39,6 +44,7 @@ export default {
   mounted() {
     api.fetchObjectives().then((data)=>{
       this.objectives = utils.mapParentChildObjective(data)
+      this.categories =_.groupBy(this.objectives,(d)=>{return d.category})
       console.log(this.objectives)
     })
   },

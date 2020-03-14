@@ -1,10 +1,9 @@
 <template>
     <ul id="myUL">
-
       <li v-for="(item,index) in data" :key="index">
         <span class="caret"><i class="fa fa-user mr-icon" aria-hidden="true"></i>{{item.title}}</span>
         <ul class="nested child-pad" v-for="(childItem,childIndex) in item.childItems" :key="childIndex">
-          <li>{{childItem.title}}</li>
+          <li><i aria-hidden="true" class="fa fa-user mr-icon"></i>{{childItem.title}}</li>
         </ul>
       </li>
   </ul>
