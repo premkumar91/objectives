@@ -1,6 +1,6 @@
-# comptetiveexam
+# Objectives parent child tree list web
 
-> competetive online exam project
+> parent child tree list
 
 ## Build Setup
 
